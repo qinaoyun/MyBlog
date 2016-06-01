@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>${pageTitle }-Powered by java1234</title>
+<title>${pageTitle }-Powered by 秦奥运</title>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/bootstrap3/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/bootstrap3/css/bootstrap-theme.min.css">
@@ -15,7 +15,6 @@
 <link href="http://blog.java1234.com/favicon.ico" rel="SHORTCUT ICON">
 <script src="${pageContext.request.contextPath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/bootstrap3/js/bootstrap.min.js"></script>
-
 <script>
 	var _hmt = _hmt || [];
 	(function() {
@@ -41,7 +40,8 @@
 	
 	<div class="row">
 		<div class="col-md-9">
-			<jsp:include page="${mainPage }"></jsp:include>
+		  <!--  mainpage就是foreground/blog/list.jsp  -->
+			<jsp:include page="${mainPage}"></jsp:include>  
 		</div>
 		
 		<div class="col-md-3">
@@ -98,6 +98,25 @@
 					</ul>
 				</div>
 			</div>
+			
+<%-- 			<div class="data_list">
+				<div class="data_list_title">								 
+					流量统计
+				</div>
+				<div class="datas">
+					<ul>
+<%  
+int n=0;  
+String counter =(String)application.getAttribute("counter");  
+if(counter!=null) n=Integer.parseInt(counter);  
+if(session.isNew()) ++n;  
+out.print("你是第"+n+"位访客");  
+counter=String.valueOf(n);  
+application.setAttribute("counter",counter);  
+%> 
+					</ul>
+				</div>
+			</div> --%>
 			
 		</div>
 		

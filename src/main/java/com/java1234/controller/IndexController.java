@@ -43,16 +43,16 @@ public class IndexController {
 	@RequestMapping("/index")
 	public ModelAndView index(@RequestParam(value="page",required=false)String page,@RequestParam(value="typeId",required=false)String typeId,@RequestParam(value="releaseDateStr",required=false)String releaseDateStr,HttpServletRequest request)throws Exception{
 		ModelAndView mav=new ModelAndView();
-		if(StringUtil.isEmpty(page)){
+		if(StringUtil.isEmpty(page)){     //判断页面是否为空
 			page="1";
 		}
-		PageBean pageBean=new PageBean(Integer.parseInt(page),10);
+		PageBean pageBean=new PageBean(Integer.parseInt(page),6);   //第几页，一页6个数据
 		Map<String,Object> map=new HashMap<String,Object>();
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		map.put("typeId", typeId);
 		map.put("releaseDateStr", releaseDateStr);
-		List<Blog> blogList=blogService.list(map);
+		List<Blog> blogList=blogService.list(map);     //查询博客
 		for(Blog blog:blogList){
 			List<String> imagesList=blog.getImagesList();
 			String blogInfo=blog.getContent();
@@ -74,9 +74,9 @@ public class IndexController {
 		if(StringUtil.isNotEmpty(releaseDateStr)){
 			param.append("releaseDateStr="+releaseDateStr+"&");
 		}
-		mav.addObject("pageCode",PageUtil.genPagination(request.getContextPath()+"/index.html", blogService.getTotal(map), Integer.parseInt(page), 10, param.toString()));
+		mav.addObject("pageCode",PageUtil.genPagination(request.getContextPath()+"/index.html", blogService.getTotal(map), Integer.parseInt(page), 6, param.toString()));
 		mav.addObject("mainPage", "foreground/blog/list.jsp");
-		mav.addObject("pageTitle","Java开源博客系统");
+		mav.addObject("pageTitle","ssm博客系统");
 		mav.setViewName("mainTemp");
 		return mav;
 	}
@@ -90,7 +90,7 @@ public class IndexController {
 	public ModelAndView download()throws Exception{
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("mainPage", "foreground/system/download.jsp");
-		mav.addObject("pageTitle","本站源码下载页面_Java开源博客系统");
+		mav.addObject("pageTitle","博客技术简介_ssm博客系统");
 		mav.setViewName("mainTemp");
 		return mav;
 	}

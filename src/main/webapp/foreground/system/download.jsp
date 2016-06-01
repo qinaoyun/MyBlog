@@ -3,7 +3,7 @@
 <div class="data_list">
 	<div class="data_list_title">
 		<img src="${pageContext.request.contextPath}/static/images/download_icon.png"/>
-		本站源码下载
+		本站技术简介
 	</div>
 	<div>
 	<p>
@@ -35,11 +35,5 @@
 </p>
 <p>
     <br/>
-<p>
-    2016年5月22号正式发布第一版
-</p>
-<p>
-	优化系统，提高访问速度;<br/>
-</p>
 	</div>
 </div>

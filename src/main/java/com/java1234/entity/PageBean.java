@@ -13,7 +13,6 @@ public class PageBean {
 	
 	
 	public PageBean(int page, int pageSize) {
-		super();
 		this.page = page;
 		this.pageSize = pageSize;
 	}

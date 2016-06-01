@@ -8,6 +8,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <script type="text/javascript">
+    /* 生成验证码*/
 	function loadimage(){
 		document.getElementById("randImage").src="${pageContext.request.contextPath}/image.jsp?"+Math.random();
 	}
@@ -22,6 +23,7 @@
 		}else{
 			$.post("${pageContext.request.contextPath}/comment/save.do",{'content':content,'imageCode':imageCode,'blog.id':'${blog.id}'},function(result){
 				if(result.success){
+					/* 刷新页面 */
 					window.location.reload();
 					alert("评论已提交成功，审核通过后显示！");
 				}else{
