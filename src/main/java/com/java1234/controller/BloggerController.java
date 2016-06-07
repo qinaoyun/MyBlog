@@ -16,7 +16,7 @@ import com.java1234.util.CryptographyUtil;
 
 /**
  * ²©Ö÷Controller²ã
- * @author java1234_Ð¡·æ
+ * @authorÇØ°ÂÔË
  *
  */
 @Controller
