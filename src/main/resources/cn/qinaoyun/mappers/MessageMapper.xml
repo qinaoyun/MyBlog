@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.qinaoyun.dao.MessageDao" >
+  <resultMap id="BaseResultMap" type="cn.qinaoyun.entity.Message" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userIp" property="userip" jdbcType="VARCHAR" />
+    <result column="mcontent" property="mcontent" jdbcType="VARCHAR" />
+    <result column="messagedate" property="messagedate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userIp, mcontent, messagedate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_message
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_message
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.qinaoyun.entity.Message" >
+    insert into t_message (id, userIp, mcontent, 
+      messagedate)
+    values (#{id,jdbcType=INTEGER}, #{userip,jdbcType=VARCHAR}, #{mcontent,jdbcType=VARCHAR}, 
+      #{messagedate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.qinaoyun.entity.Message" >
+    insert into t_message
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userip != null" >
+        userIp,
+      </if>
+      <if test="mcontent != null" >
+        mcontent,
+      </if>
+      <if test="messagedate != null" >
+        messagedate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userip != null" >
+        #{userip,jdbcType=VARCHAR},
+      </if>
+      <if test="mcontent != null" >
+        #{mcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="messagedate != null" >
+        #{messagedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.qinaoyun.entity.Message" >
+    update t_message
+    <set >
+      <if test="userip != null" >
+        userIp = #{userip,jdbcType=VARCHAR},
+      </if>
+      <if test="mcontent != null" >
+        mcontent = #{mcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="messagedate != null" >
+        messagedate = #{messagedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.qinaoyun.entity.Message" >
+    update t_message
+    set userIp = #{userip,jdbcType=VARCHAR},
+      mcontent = #{mcontent,jdbcType=VARCHAR},
+      messagedate = #{messagedate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

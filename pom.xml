@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.java1234.blog</groupId>
+  <groupId>cn.qinaoyun.blog</groupId>
   <artifactId>Blog</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
@@ -74,6 +74,12 @@
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-aop</artifactId>
+		<version>4.1.7.RELEASE</version>
+	</dependency>
+	
+<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
 		<version>4.1.7.RELEASE</version>
 	</dependency>
 	
@@ -234,6 +240,13 @@
 		<artifactId>jsoup</artifactId>
 		<version>1.8.3</version>
 	</dependency>
-	
+	<!-- 添加Junti单元测试 -->
+	<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<!-- 表示开发的时候引入，发布的时候不会加载此包 -->
+			<scope>test</scope>
+		</dependency>
   </dependencies>
 </project>
