@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import cn.qinaoyun.entity.Blog;
 import cn.qinaoyun.entity.PageBean;
 import cn.qinaoyun.service.BlogService;
+import cn.qinaoyun.util.CryptographyUtil;
 import cn.qinaoyun.util.PageUtil;
 import cn.qinaoyun.util.StringUtil;
 
@@ -41,7 +42,8 @@ public class IndexController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/index")
-	public ModelAndView index(@RequestParam(value="page",required=false)String page,@RequestParam(value="typeId",required=false)String typeId,@RequestParam(value="releaseDateStr",required=false)String releaseDateStr,HttpServletRequest request)throws Exception{
+	public ModelAndView index(@RequestParam(value="p"
+			+ "age",required=false)String page,@RequestParam(value="typeId",required=false)String typeId,@RequestParam(value="releaseDateStr",required=false)String releaseDateStr,HttpServletRequest request)throws Exception{
 		ModelAndView mav=new ModelAndView();
 		if(StringUtil.isEmpty(page)){     //判断页面是否为空
 			page="1";
@@ -82,7 +84,7 @@ public class IndexController {
 	}
 	
 	/**
-	 * 源码下载
+	 * 博客技术简介
 	 * @return
 	 * @throws Exception
 	 */

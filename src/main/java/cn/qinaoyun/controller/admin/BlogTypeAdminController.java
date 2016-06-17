@@ -21,7 +21,7 @@ import net.sf.json.JSONObject;
 
 /**
  * 管理员博客类别Controller层
- * @author Administrator
+ * @author 秦奥运
  *
  */
 @Controller

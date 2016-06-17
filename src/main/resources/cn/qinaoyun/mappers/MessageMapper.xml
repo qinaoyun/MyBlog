@@ -16,6 +16,38 @@
     from t_message
     where id = #{id,jdbcType=INTEGER}
   </select>
+   <select id="selectAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_message
+  </select>
+  
+  	<select id="list" parameterType="Map" resultMap="BaseResultMap">
+		select * from t_message
+		<where>
+			<if test="id != null" >
+        id,
+      </if>
+      <if test="userip != null" >
+        userIp,
+      </if>
+      <if test="mcontent != null" >
+        mcontent,
+      </if>
+      <if test="messagedate != null" >
+        messagedate,
+      </if>
+		</where>
+		order by messagedate desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<select id="getTotal" resultType="Long">
+		select count(*) from t_message
+	</select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from t_message
     where id = #{id,jdbcType=INTEGER}

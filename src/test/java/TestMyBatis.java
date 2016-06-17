@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
@@ -26,11 +30,28 @@ public class TestMyBatis {
 
 	@Test
 	public void test1() {
-		Message message = messageService.selectByPrimaryKey(1);
-		 System.out.println(message.getMcontent()+"-----------------¡Ù—‘«Ω≤‚ ‘◊®”√");
-		// logger.info("÷µ£∫"+user.getUserName());
-		logger.info(message.getMcontent());
-	}
+		//≤‚ ‘≤È—ØÀ˘”–¡Ù—‘
+/*		List<Message> list= messageService.selectAll();
+		for(int a=0;a<list.size();a++){
+			 Message mmsg=(Message)list.get(a);
+		 System.out.println(mmsg.getMcontent()+"-----------------¡Ù—‘«Ω≤‚ ‘◊®”√"+list.size());
+		}*/
+		//≤‚ ‘≤È—Ø¡Ù—‘µƒ◊‹ ˝
+	/*	Long length = messageService.getTotal();
+		System.out.println(length+"-----------------¡Ù—‘«Ω≤‚ ‘◊®”√");
+	}*/
+		//≤‚ ‘map≤È—ØÀ˘”–º«¬º
+		Map<String,Object> map=new HashMap<String,Object>();
+		map.put("start", 2);
+		map.put("size", 4);
+		List<Message> list= messageService.list(null);
+		for(int a=0;a<list.size();a++){
+			 Message mmsg=(Message)list.get(a);
+		 System.out.println(mmsg.getMcontent()+"-----------------¡Ù—‘«Ω≤‚ ‘"+list.size());
+		}
+		
+		
+}
 }
 
 

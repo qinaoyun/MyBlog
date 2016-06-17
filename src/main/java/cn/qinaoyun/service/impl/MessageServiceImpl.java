@@ -61,6 +61,24 @@ public class MessageServiceImpl implements MessageService{
 		return messageDao.updateByPrimaryKeySelective(record);
 	}
 
+	@Override
+	public List<Message> selectAll() {
+		// TODO Auto-generated method stub
+		return messageDao.selectAll();
+	}
+
+	@Override
+	public List<Message> list(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return messageDao.list(map);
+	}
+
+	@Override
+	public Long getTotal() {
+		// TODO Auto-generated method stub
+		return messageDao.getTotal();
+	}
+
 
 
 }

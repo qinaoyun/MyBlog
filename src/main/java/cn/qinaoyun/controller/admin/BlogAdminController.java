@@ -25,7 +25,7 @@ import net.sf.json.JsonConfig;
 
 /**
  * 管理员博客Controller层
- * @author Administrator
+ * @author 秦奥运
  *
  */
 @Controller

@@ -25,6 +25,6 @@ public class CryptographyUtil {
 		String password = "123456";
 
 		System.out.println("Md5º”√‹£∫"
-				+ CryptographyUtil.md5(password, "java1234"));
+				+ CryptographyUtil.md5(password, "«ÿ∞¬‘À"));
 	}
 }
